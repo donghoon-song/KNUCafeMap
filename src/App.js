@@ -1,25 +1,32 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import CafeMap from './components/CafeMap';
+import CafeList from './components/CafeList';
+import { Layout } from 'antd';
+import { RenderAfterNavermapsLoaded } from 'react-naver-maps';
+import 'antd/dist/antd.css';
+
+const ContentStyle = {
+  padding: "0 1.2rem 0 1.2rem"
+}
 
 function App() {
+  const { Header, Footer, Content } = Layout;
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <Layout>
+      <Header></Header>
+      <Content style={ContentStyle}>
+        <RenderAfterNavermapsLoaded
+          ncpClientId={"7026fmnqar"}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
+          <CafeMap />
+          <CafeList />
+        </RenderAfterNavermapsLoaded >
+      </Content>
+      <Footer></Footer>
+    </Layout>
+
+
+
   );
 }
 

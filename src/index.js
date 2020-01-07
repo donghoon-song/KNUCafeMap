@@ -1,10 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'mobx-react';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import InfoStore from './stores/InfoStore';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const info = new InfoStore();
+
+ReactDOM.render(<Provider info={info}><App /></Provider>, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

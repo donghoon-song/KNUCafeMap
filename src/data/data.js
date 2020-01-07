@@ -1,0 +1,74 @@
+export const mockList = [{
+    id: 1,
+    name: "아틀리에 빈",
+    openTime: "08:00",
+    closeTime: "23:00",
+    closestGate: "북문",
+    latitude: 35.8921615,
+    longitude: 128.5984245
+}, {
+    id: 2,
+    name: "스타벅스",
+    openTime: "07:00",
+    closeTime: "23:00",
+    closestGate: "북문",
+    latitude: 35.8922285,
+    longitude: 128.5983386
+}, {
+    id: 3,
+    name: "파스쿠치",
+    openTime: "07:30",
+    closeTime: "01:30",
+    closestGate: "북문",
+    latitude: 35.8923665,
+    longitude: 128.6065032
+}, {
+    id: 4,
+    name: "1LL",
+    openTime: "08:00",
+    closeTime: "23:00",
+    closestGate: "북문",
+    latitude: 35.8922285,
+    longitude: 128.5983386
+}, {
+    id: 5,
+    name: "다다름",
+    openTime: "?",
+    closeTime: "?",
+    closestGate: "북문",
+    latitude: 35.8903234,
+    longitude: 128.6078305
+}, {
+    id: 6,
+    name: "블라인드 멜론",
+    openTime: "08:00",
+    closeTime: "23:00",
+    closestGate: "북문",
+    latitude: 35.8943635,
+    longitude: 128.6111066
+}, {
+    id: 7,
+    name: "칼디커피",
+    openTime: "09:00",
+    closeTime: "00:00",
+    closestGate: "쪽문",
+    latitude: 35.8922285,
+    longitude: 128.5983386
+}, {
+    id: 8,
+    name: "하바나",
+    openTime: "?",
+    closeTime: "?",
+    closestGate: "쪽문",
+    latitude: 35.8856175,
+    longitude: 128.6079302
+},
+{
+    id: 9,
+    name: "하바나",
+    openTime: "?",
+    closeTime: "?",
+    closestGate: "북문",
+    latitude: 35.8929224,
+    longitude: 128.6067547
+},]

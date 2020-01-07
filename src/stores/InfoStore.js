@@ -1,23 +1,18 @@
-import { action, observable } from 'mobx';
-import autobind from 'autobind-decorator';
+import { observable, action } from 'mobx';
+import { observer } from 'mobx-react';
+import { mockList } from '../data/data';
 
-@autobind
 class InfoStore {
-    @observable show: boolean;
-
-    constructor() {
-        this.show = false;
-    }
-    // show modal
-    @action
-    openModal() {
-        this.show = true;
-    }
+    @observable cafeList = [
+        ...mockList
+    ];
+    @observable focusedCafe = {};
 
     @action
-    closeModal() {
-        this.show = false;
+    focusCafe(cafe) {
+        this.focusedCafe = { ...cafe };
     }
+
 }
 
 export default InfoStore;

@@ -8,7 +8,7 @@ const item = <div style={{ display: "flex", alignItems: "center" }}>1</div>
 
 const topStyle = { width: "100%", height: "30%", marginTop: "20px" };
 
-const bottomStyle = { width: "100%", height: "60%", border: "3px solid" };
+const bottomStyle = { width: "100%", height: "60%", border: "3px solid", display: "flex", justifyContent: "center" };
 
 
 const CafeInfo = () => {

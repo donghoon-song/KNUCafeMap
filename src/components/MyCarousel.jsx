@@ -13,8 +13,8 @@ const mockData = ["https://img-wishbeen.akamaized.net/plan/1498208096160_1788174
 const MyCarousel = () => {
     return (<><div className="carousel-wrapper" style={{ width: "40vw", height: "40vh" }}>
         <Carousel variableWidth="true">
-            {mockData.map((img) =>
-                <img src={img} alt="img" key={key++} style={{ width: "40vw", height: "40vh", float: "center" }}></img>
+            {mockData.map((img) => <div>
+                <img src={img} alt="img" key={key++} style={{ width: "40vw", height: "40vh", float: "center" }}></img></div>
             )}
         </Carousel></div></>)
 }

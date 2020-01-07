@@ -7,7 +7,7 @@ const CafeMap = () => {
         <NaverMap
             id='maps-examples-marker'
             style={{
-                width: '50vw',
+                width: '100%',
                 height: '50vh',
             }}
             defaultCenter={new navermaps.LatLng(35.8894215, 128.6104104)}

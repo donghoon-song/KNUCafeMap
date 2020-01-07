@@ -1,32 +1,30 @@
 import React from 'react';
 import CafeMap from './components/CafeMap';
 import CafeList from './components/CafeList';
+import CafeInfo from './components/CafeInfo';
+import Content from './components/Content';
 import { Layout } from 'antd';
 import { RenderAfterNavermapsLoaded } from 'react-naver-maps';
 import 'antd/dist/antd.css';
 
-const ContentStyle = {
-  padding: "0 1.2rem 0 1.2rem"
-}
+const leftContent = < RenderAfterNavermapsLoaded
+  ncpClientId={"7026fmnqar"}
+>
+  <CafeMap />
+  <CafeList />
+</RenderAfterNavermapsLoaded >
+
+const rightContent = <CafeInfo />
 
 function App() {
-  const { Header, Footer, Content } = Layout;
+  const { Header, Footer } = Layout;
   return (
-    <Layout>
+    <>
       <Header></Header>
-      <Content style={ContentStyle}>
-        <RenderAfterNavermapsLoaded
-          ncpClientId={"7026fmnqar"}
-        >
-          <CafeMap />
-          <CafeList />
-        </RenderAfterNavermapsLoaded >
+      <Content leftComponent={leftContent} rightComponent={rightContent}>
       </Content>
-      <Footer></Footer>
-    </Layout>
-
-
-
+      {/* <Footer></Footer> */}
+    </>
   );
 }
 

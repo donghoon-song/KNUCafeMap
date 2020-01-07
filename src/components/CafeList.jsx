@@ -52,9 +52,7 @@ const CafeList = () => {
     return (
         <List
             style={{
-                width: "50vw",
-                marginLeft: "0.5rem",
-                // boxShadow: "2px 2px"
+                width: "100%",
             }}
             className="demo-loadmore-list"
             loading={initLoading}
@@ -70,9 +68,9 @@ const CafeList = () => {
                                 <Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
                             }
                             title={<a href="https://ant.design">{item.name}</a>}
-                            description={item.openTime}
+                            description={item.closesteGate}
                         />
-                        <div>content</div>
+                        <div>{`${item.openTime} - ${item.closeTime}`}</div>
                     </Skeleton>
                 </List.Item>
             )}

@@ -4,8 +4,8 @@ export const mockList = [{
     openTime: "08:00",
     closeTime: "23:00",
     closestGate: "북문",
-    latitude: 35.8921615,
-    longitude: 128.5984245
+    latitude: 35.8921352,
+    longitude: 128.605736
 }, {
     id: 2,
     name: "스타벅스",
@@ -52,8 +52,8 @@ export const mockList = [{
     openTime: "09:00",
     closeTime: "00:00",
     closestGate: "쪽문",
-    latitude: 35.8922285,
-    longitude: 128.5983386
+    latitude: 35.8856175,
+    longitude: 128.6079302
 }, {
     id: 8,
     name: "하바나",

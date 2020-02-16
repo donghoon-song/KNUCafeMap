@@ -16,14 +16,21 @@ const leftContent = < RenderAfterNavermapsLoaded
 
 const rightContent = <CafeInfo />
 
+const containerStyle = {
+  width: '100vw',
+  height: '100vh',
+}
+
 function App() {
   const { Header, Footer } = Layout;
   return (
     <>
-      <Header></Header>
-      <Content leftComponent={leftContent} rightComponent={rightContent}>
-      </Content>
-      {/* <Footer></Footer> */}
+      <div className="container" style={containerStyle}>
+        <Header></Header>
+        <Content leftComponent={leftContent} rightComponent={rightContent}>
+        </Content>
+        {/* <Footer></Footer> */}
+      </div>
     </>
   );
 }

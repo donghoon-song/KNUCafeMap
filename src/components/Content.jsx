@@ -6,7 +6,7 @@ const ContentStyle = {
 
 const leftContentStyle = {
     width: '50%',
-    height: '100vh',
+    height: '100%',
     display: 'inline-block',
     boxSizing: 'border-box',
     float: 'left',
@@ -16,7 +16,7 @@ const leftContentStyle = {
 
 const rightContentStyle = {
     width: '50%',
-    height: '100vh',
+    height: '100%',
     display: 'inline-block',
     boxSizing: 'border-box',
     float: 'right',

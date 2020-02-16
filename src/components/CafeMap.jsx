@@ -18,7 +18,7 @@ class CafeMap extends Component {
                 id='maps-examples-marker'
                 style={{
                     width: '100%',
-                    height: '50vh',
+                    height: '50%',
                 }}
                 defaultCenter={new navermaps.LatLng(35.8894215, 128.6104104)}
                 defaultZoom={10}

@@ -27,31 +27,34 @@ class CafeList extends Component {
             infoStore.setFocusedCafe(infoStore.cafeList[Number(e.target.getAttribute('index'))]);
         }
         return (
-            <List
-                style={{
-                    width: "100%",
-                }}
-                className="demo-loadmore-list"
-                loading={this.state.initLoading}
-                itemLayout="horizontal"
-                dataSource={infoStore.cafeList}
-                renderItem={item => (
-                    <List.Item
-                    // actions={[<a key="list-loadmore-edit">edit</a>, <a key="list-loadmore-more">more</a>]}
-                    >
-                        <Skeleton avatar title={false} loading={item.loading} active>
-                            <List.Item.Meta
-                                avatar={
-                                    <Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
-                                }
-                                title={<span index={item.id - 1} onClick={handleClick}>{item.name}</span>}
-                                description={item.closestGate}
-                            />
-                            <div>{`${item.openTime} - ${item.closeTime}`}</div>
-                        </Skeleton>
-                    </List.Item>
-                )}
-            />
+            <>
+                <List
+                    style={{
+                        width: "100%",
+                    }}
+                    className="demo-loadmore-list"
+                    loading={this.state.initLoading}
+                    itemLayout="horizontal"
+                    dataSource={infoStore.cafeList}
+                    pagination={{ onChange: page => { console.log(page); }, pageSize: 5 }}
+                    renderItem={item => (
+                        <List.Item
+                        // actions={[<a key="list-loadmore-edit">edit</a>, <a key="list-loadmore-more">more</a>]}
+                        >
+                            <Skeleton avatar title={false} loading={item.loading} active>
+                                <List.Item.Meta
+                                    avatar={
+                                        <Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
+                                    }
+                                    title={<span index={item.id - 1} onClick={handleClick}>{item.name}</span>}
+                                    description={item.closestGate}
+                                />
+                                <div>{`${item.openTime} - ${item.closeTime}`}</div>
+                            </Skeleton>
+                        </List.Item>
+                    )}
+                />
+            </>
         );
     }
 

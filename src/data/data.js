@@ -5,7 +5,8 @@ export const mockList = [{
     closeTime: "23:00",
     closestGate: "북문",
     latitude: 35.8921352,
-    longitude: 128.605736
+    longitude: 128.605736,
+    img: "https://t3.daumcdn.net/thumb/R720x0/?fname=http://t1.daumcdn.net/brunch/service/user/2OhT/image/Z2lXPxDIEJdlkXQLowyTHZCO22E"
 }, {
     id: 2,
     name: "스타벅스",

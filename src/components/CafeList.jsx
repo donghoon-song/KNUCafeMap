@@ -1,9 +1,57 @@
 import React, { Component } from 'react';
-import { List, Avatar, Button, Skeleton } from 'antd';
+import { Table } from 'antd';
 import 'antd/dist/antd.css';
 import { observer, inject } from 'mobx-react';
 import InfoStore from '../stores/InfoStore';
 
+// Table Config
+const columns = [
+    {
+        title: '카페 이름',
+        dataIndex: 'name',
+        onFilter: (value, record) => record.name.indexOf(value) === 0,
+        defaultSortOrder: 'descend',
+        sorter: (a, b) => a.name < b.name,
+        sortDirections: ['descend'],
+    },
+    {
+        title: '여는 시간',
+        dataIndex: 'openTime',
+        sorter: (a, b) => a.openTime < b.openTime,
+        sortDirections: ['descend', 'aescend'],
+    },
+    {
+        title: '닫는 시간',
+        dataIndex: 'closeTime',
+        sorter: (a, b) => a.closeTime < b.closeTime,
+        sortDirections: ['descend', 'aescend'],
+    },
+    {
+        title: '가까운 문',
+        dataIndex: 'closestGate',
+        filters: [
+            {
+                text: '북문',
+                value: '북문',
+            },
+            {
+                text: '쪽문',
+                value: '쪽문',
+            },
+            {
+                text: '테크노문',
+                value: '테크노문',
+            },
+            {
+                text: '정문',
+                value: '정문',
+            },
+        ],
+        onFilter: (value, record) => record.closestGate.indexOf(value) === 0,
+        sorter: (a, b) => a.closestGate < b.closestGate,
+        sortDirections: ['descend', 'ascend'],
+    },
+];
 @inject('infoStore')
 @observer
 class CafeList extends Component {
@@ -14,46 +62,18 @@ class CafeList extends Component {
             initLoading: false
         }
     }
-    //     const { infoStore } = this.props;
-    // const [list, setList] = useState(mockList);
-    // const [initLoading, setInitLoading] = useState(false);
+
     render() {
         const { infoStore } = this.props;
 
-        const handleClick = (e) => {
-            console.log(e.target);
-            console.log(e.target.getAttribute('index'));
-            console.log(infoStore.cafeList[0])
-            infoStore.setFocusedCafe(infoStore.cafeList[Number(e.target.getAttribute('index'))]);
+        const handleClick = (e, record) => {
+            const focusedCafe = infoStore.cafeList.filter(item => item.name === record.name).filter(item => item.closestGate === record.closestGate);
+            infoStore.setFocusedCafe(focusedCafe[0]);
         }
+
         return (
             <>
-                <List
-                    style={{
-                        width: "100%",
-                    }}
-                    className="demo-loadmore-list"
-                    loading={this.state.initLoading}
-                    itemLayout="horizontal"
-                    dataSource={infoStore.cafeList}
-                    pagination={{ onChange: page => { console.log(page); }, pageSize: 5 }}
-                    renderItem={item => (
-                        <List.Item
-                        // actions={[<a key="list-loadmore-edit">edit</a>, <a key="list-loadmore-more">more</a>]}
-                        >
-                            <Skeleton avatar title={false} loading={item.loading} active>
-                                <List.Item.Meta
-                                    avatar={
-                                        <Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
-                                    }
-                                    title={<span index={item.id - 1} onClick={handleClick}>{item.name}</span>}
-                                    description={item.closestGate}
-                                />
-                                <div>{`${item.openTime} - ${item.closeTime}`}</div>
-                            </Skeleton>
-                        </List.Item>
-                    )}
-                />
+                <Table dataSource={infoStore.cafeList} columns={columns} onRow={(record, rowIndex) => { return { onClick: e => handleClick(e, record) } }}></Table>
             </>
         );
     }
